@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Core Class
+ * Gets URL, and requires requested controller and calls the method along with arguments.
+ *
+ * @property string $currentController Controller from URL. Defaults to 'Pages'.
+ * @property string $currentMethod Method from URL. Defaults to 'index'.
+ * @property mixed[] $params Params specified in the URL. Defaults to none.
+ *
+ * @method mixed getURL() Returns the exploded URL content.
+ */
 class Core
 {
     protected $currentController = 'Pages';
@@ -7,7 +17,12 @@ class Core
     protected $params = [];
 
     /**
-     * @return false|string[]|null
+     * Any suffix that comes after `localhost/traversymvc/` is considered as URL.
+     * If suffix exists, get the URL. Trim it on both to remove `/`, whitespace and line break.
+     * Sanitize, explode at `/` and returns an array.
+     * If suffix is null, return null.
+     *
+     * @return string[]|null
      */
     public function getURL()
     {
@@ -32,8 +47,25 @@ class Core
         // if controller file exists, require and instantiate. unset that element since its not needed.
         if (file_exists($requested_controller_path)) {
             require_once $requested_controller_path;
-            $currentController = new $requested_controller;
+            $this->currentController = new $requested_controller;
             unset($url[0]);
         }
+
+        // check if method was requested
+        if (isset($url[1])) {
+            // check if requested method exists
+            if (method_exists($this->currentController, $url[1])) {
+                $this->currentMethod = $url[1];  // store requested method
+                unset($url[1]);
+            }
+
+            // store params if any exist
+            if (!empty($url)) {
+                $this->params = array_values($url);
+            }
+        }
+
+        // callback function that calls the requested/default method with params if any
+        call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
     }
 }
