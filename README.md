@@ -1,10 +1,18 @@
 # MVC Framework
 
-## TODO
+## Tasklist
 
-- Code Libraries/Controller
+### TODO
+
+- Code Libraries/Core
+    - Done: instantiate controller
 - Code Libraries/Database
 - Code Libraries/Controller
+
+- Implement 404 mechanism
+- Define filepaths using variables or constants
+
+### Done
 
 ## Documentation
 
