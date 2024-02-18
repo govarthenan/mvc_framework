@@ -3,7 +3,7 @@
 /**
  * Controller class for posts.
  */
-class Posts
+class Posts extends Controller
 {
     public function __construct()
     {
@@ -12,7 +12,7 @@ class Posts
 
     public function index()
     {
-        echo "Welcome to Posts!";
+        $this->loadView('test');
     }
 
     public function makePost(string $about): void

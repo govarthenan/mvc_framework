@@ -3,7 +3,7 @@
 /**
  * Controller class for Pages such as 'About Us' etc.
  */
-class Pages
+class Pages extends Controller
 {
     public function __construct()
     {
@@ -12,7 +12,7 @@ class Pages
 
     public function index()
     {
-        echo "Welcome to Pages!";
+        $this->loadView('test');
     }
 
     public function greet(string $target): void
