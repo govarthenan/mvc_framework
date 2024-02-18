@@ -40,15 +40,29 @@ class Core
         // get sanitized, exploded URL array
         $url = $this->getURL();
 
-        // get requested controller name and define file path
-        $requested_controller = ucwords($url[0]);  // capitalize first char
-        $requested_controller_path = '../app/controllers/' . $requested_controller . '.php';
+        // if URL requests controller, update attribute and define file path
+        // addition
+        if (is_null($url)) {
+            $requested_controller_path = '../app/controllers/' . $this->currentController . '.php';
+        } else {
+            $this->currentController = ucwords($url[0]);  // capitalize first char
+            $requested_controller_path = '../app/controllers/' . $this->currentController . '.php';
+        }
+
+        // legacy
+        // // get requested controller name and define file path
+        // $requested_controller = ucwords($url[0]);  // capitalize first char
+        // $requested_controller_path = '../app/controllers/' . $requested_controller . '.php';
 
         // if controller file exists, require and instantiate. unset that element since its not needed.
         if (file_exists($requested_controller_path)) {
             require_once $requested_controller_path;
-            $this->currentController = new $requested_controller;
+            $this->currentController = new $this->currentController;
             unset($url[0]);
+        } else {  // addition
+            // if controller file doens't exist, show 404
+            echo '404';
+            die();
         }
 
         // check if method was requested
