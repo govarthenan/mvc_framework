@@ -10,6 +10,11 @@ class Pages
         echo "Pages controller";
     }
 
+    public function index()
+    {
+        echo "Welcome to Pages!";
+    }
+
     public function greet(string $target): void
     {
         echo "Hello, $target";
