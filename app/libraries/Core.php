@@ -43,16 +43,16 @@ class Core
         // if URL requests controller, update attribute and define file path
         // addition
         if (is_null($url)) {
-            $requested_controller_path = '../app/controllers/' . $this->currentController . '.php';
+            $requested_controller_path = APP_ROOT . '/controllers/' . $this->currentController . '.php';
         } else {
             $this->currentController = ucwords($url[0]);  // capitalize first char
-            $requested_controller_path = '../app/controllers/' . $this->currentController . '.php';
+            $requested_controller_path = APP_ROOT . '/controllers/' . $this->currentController . '.php';
         }
 
         // legacy
         // // get requested controller name and define file path
         // $requested_controller = ucwords($url[0]);  // capitalize first char
-        // $requested_controller_path = '../app/controllers/' . $requested_controller . '.php';
+        // $requested_controller_path = APP_ROOT. '/controllers/' . $requested_controller . '.php';
 
         // if controller file exists, require and instantiate. unset that element since its not needed.
         if (file_exists($requested_controller_path)) {

@@ -14,7 +14,7 @@ class Controller
     public function loadModel(string $model)
     {
         // define file path
-        $model_path = '../app/models/' . $model . '.php';
+        $model_path = APP_ROOT . '/models/' . $model . '.php';
 
         // check if file exists
         if (file_exists($model_path)) {
@@ -34,7 +34,7 @@ class Controller
     public function loadView(string $view, array $data = [])
     {
         // define file path
-        $view_path = '../app/views/' . $view . '.php';
+        $view_path = APP_ROOT . '/views/' . $view . '.php';
 
         // check file availability & load
         if (file_exists($view_path)) {
