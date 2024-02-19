@@ -12,11 +12,11 @@ class Pages extends Controller
 
     public function index()
     {
-        $this->loadView('test');
+        $this->loadView('pages/index');
     }
 
     public function greet(string $target): void
     {
-        echo "Hello, $target";
+        $this->loadView('pages/greet', ['target' => $target]);
     }
 }
