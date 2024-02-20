@@ -56,7 +56,7 @@ class Core
 
         // if controller file exists, require and instantiate. unset that element since its not needed.
         if (file_exists($requested_controller_path)) {
-            require_once $requested_controller_path;
+            // require_once $requested_controller_path;
             $this->currentController = new $this->currentController;
             unset($url[0]);
         } else {  // addition
