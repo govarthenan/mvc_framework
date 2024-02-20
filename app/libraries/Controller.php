@@ -18,7 +18,7 @@ class Controller
 
         // check if file exists
         if (file_exists($model_path)) {
-            require_once $model_path;
+            require_once $model_path;  // ToDo: Safely remove this block after ensuring autoload works.
         } else {
             die("\nModel $model not found\n");  // ToDo: improve error handling
         }
