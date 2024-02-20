@@ -4,18 +4,16 @@
 
 ### TODO
 
-- Code Libraries/Core
-    - Done: instantiate controller
-    - Done: call method with params
 - Code Libraries/Database
-- Code Libraries/Controller
-
 - Implement 404 mechanism
     - for controller
     - for method
-- Define filepaths using variables or constants
 
 ### Done
+- Code Libraries/Core
+- Code Libraries/Controller
+- Define filepaths using variables or constants
+- Autoload mechanism
 
 ## Documentation
 
