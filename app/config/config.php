@@ -1,5 +1,11 @@
 <?php
 
+// Database parameters
+define('DB_HOST', 'database');
+define('DB_USER', 'root');
+define('DB_PASSWORD', 'tiger');
+define('DB_NAME', 'mvcDB');
+
 // /app/ folder path
 define('APP_ROOT', dirname(__DIR__));
 
