@@ -54,7 +54,7 @@ class MyAutoLoader
         }
     }
 
-    public static function loadLibraries($className)
+    public static function autoLoadLibraries($className)
     {
         // define directory to search
         $target_dir = APP_ROOT . '/libraries';
@@ -63,7 +63,7 @@ class MyAutoLoader
         self::masterAutoLoad($target_dir, $className, __FUNCTION__);
     }
 
-    public static function loadControllers($className)
+    public static function autoLoadControllers($className)
     {
         // define directory to search
         $target_dir = APP_ROOT . '/controllers';
@@ -72,7 +72,7 @@ class MyAutoLoader
         self::masterAutoLoad($target_dir, $className, __FUNCTION__);
     }
 
-    public static function loadModels($className)
+    public static function autoLoadModels($className)
     {
         // define directory to search
         $target_dir = APP_ROOT . '/models';
