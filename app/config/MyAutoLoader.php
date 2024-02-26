@@ -55,6 +55,7 @@ class MyAutoLoader
     }
 
     public static function autoLoadLibraries($className)
+
     {
         // define directory to search
         $target_dir = APP_ROOT . '/libraries';

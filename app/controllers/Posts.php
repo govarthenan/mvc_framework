@@ -20,6 +20,7 @@ class Posts extends Controller
     {
         $employee_data = $this->postModel->getEmployees();  // get employee data from the model
         $this->loadView('posts/index', ['posts' => $employee_data]);  // load view with employee data
+
     }
 
     public function makePost(string $about): void
